@@ -1,29 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Onlineusers from '@/pages/Onlineusers'
-// import timertask from '@/pages/timertask'
-import rytimertaskcontent from "@/components/timertask/ry-timertask-content"
-import ryOnlineuserscontent from "@/components/Onlineusers/ry-Onlineusers-content"
+import RyLogin from '@/pages/ry-login'
+import RyUserAdm from '@/pages/ry-userAdm'
+import RyUserAdmContent from '@/components/ry-userAdmcom/ry-userAdm-content';
+import RyRoleAdmContent from '@/components/ry-userAdmcom/ry-roleAdm-content';
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      component: Onlineusers,
+      component: RyLogin,
+    },
+    {
+      path: '/RyUserAdm',
+      component: RyUserAdm,
       children:[
         {
-          path: '/rytimertaskcontent',
-          name: 'rytimertaskcontent',
-          component: rytimertaskcontent
+          path: '/RyUserAdmContent',
+          component: RyUserAdmContent,
         },
         {
-          path: '/',
-          name: 'ryOnlineuserscontent',
-          component: ryOnlineuserscontent
+          path: '/RyRoleAdmContent',
+          component: RyRoleAdmContent,
         }
       ]
-    },  
-    
+    }
   ]
 })
