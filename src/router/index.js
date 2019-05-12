@@ -4,6 +4,9 @@ import RyLogin from '@/pages/ry-login'
 import RyUserAdm from '@/pages/ry-userAdm'
 import RyUserAdmContent from '@/components/ry-userAdmcom/ry-userAdm-content';
 import RyRoleAdmContent from '@/components/ry-userAdmcom/ry-roleAdm-content';
+import RyMenu from '@/pages/ry-menu'
+import MenuContent from '@/components/ry-menu/MenuContent'
+import SectionContent from '@/components/ry-menu/SectionContent'
 
 Vue.use(Router)
 
@@ -24,6 +27,20 @@ export default new Router({
         {
           path: '/RyRoleAdmContent',
           component: RyRoleAdmContent,
+        }
+      ]
+    },
+    {
+      path: '/RyMenu',
+      component: RyMenu,
+      children:[
+        {
+          path: '/MenuContent',
+          component: MenuContent,
+        },
+        {
+          path: '/SectionContent',
+          component: SectionContent,
         }
       ]
     }

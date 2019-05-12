@@ -7,11 +7,13 @@
 <script>
 import RyLogin from "./pages/ry-login"
 import RyUserAdm from "./pages/ry-userAdm"
+import RyMenu from '@/pages/ry-menu'
 export default {
   name: 'App',
   components:{
     RyLogin,
-    RyUserAdm
+    RyUserAdm,
+    RyMenu
   }
 }
 </script>
