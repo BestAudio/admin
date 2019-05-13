@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import RyLogin from '@/pages/ry-login'
 import RyUserAdm from '@/pages/ry-userAdm'
-import RyUserAdmContent from '@/components/ry-userAdmcom/ry-userAdm-content';
-import RyRoleAdmContent from '@/components/ry-userAdmcom/ry-roleAdm-content';
+import RyUserAdmContent from '@/components/ry-userAdmcom/ry-userAdm-content'
+import RyRoleAdmContent from '@/components/ry-userAdmcom/ry-roleAdm-content'
 import RyMenu from '@/pages/ry-menu'
 import MenuContent from '@/components/ry-menu/MenuContent'
 import SectionContent from '@/components/ry-menu/SectionContent'

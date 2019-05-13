@@ -67,7 +67,7 @@
                 <fieldset class="layui-elem-field site-demo-button">
                 <div>
                     <button @click="Add" class=" layui-btn layui-btn-sm layui-btn-normal layui-btn-normalel"><i class="layui-icon layui-icon-add-1"></i> 新增</button>
-                    <button class="layui-btn layui-btn-sm layui-btn-normal layui-btn-normalel layui-btn-normalele"><i class="layui-icon layui-icon-edit"></i> 修改</button>
+                    <button @click="Amend" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-normalel layui-btn-normalele"><i class="layui-icon layui-icon-edit"></i> 修改</button>
                     <button class="layui-btn layui-btn-sm layui-btn-normal layui-btn-normalel layui-btn-normalels"><i class="layui-icon layui-icon-shrink-right"></i> 展开/折叠</button>
                 </div>
                 </fieldset>
@@ -123,7 +123,6 @@
                     <span style="font-size:12px;color:#676a6c">#</span>
                 </td>
                 <td style="text-indent:10px">
-                    <!-- <span style="font-size:12px;color:#676a6c">目录</span> -->
                     <div class="normal1">目录</div>
                 </td>
                 <td>
@@ -207,8 +206,55 @@
             </tr>
         </table>
     </div>
-    
-
+   <!-- 弹出层  -->
+    <div class="layui-row" id="layui-add" style="display:none;">
+	    <div class="layui-col-md11">
+	        <form class="layui-form" lay-filter="formTestFilter2121" >
+	            <div class="layui-form-item layui-from-item-one">
+	                <label class="layui-form-label">用户名：</label>
+	                <div class="layui-input-inline">
+	                    <input type="text" name="userName"  class="layui-input">
+	                </div>
+	                <label class="layui-form-label">密码：</label>
+	                <div class="layui-input-inline">
+	                	<input type="text" name="password"  class="layui-input">
+	                </div>
+	            </div>
+	            <div class="layui-form-item">
+	                <label class="layui-form-label">角色：</label>
+	                <div class="layui-input-inline">
+	                    <input type="text" name="roleName" class="layui-input">
+	                </div>
+	                <div class="layui-input-inline">
+	                	<button onclick="selectRole()" class="layui-btn layui-btn-primary layui-btn-radius">选择角色</button>
+	                </div>
+	            </div>
+	            <div class="layui-form-item">
+	                <label class="layui-form-label">备注：</label>
+	                <div class="layui-input-block">
+	                    <textarea placeholder="请输入内容" class="layui-textarea" name="userDescription"></textarea>
+	                </div>
+	            </div>
+	            <div class="layui-form-item">
+	                <div class="layui-input-block">
+	                    <button type="button" class="layui-btn layui-btn-normal">提交</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+    <div class="layui-layer layui-layer-dialog layer-ext-moon" id="layui-amend" style="display:none" >
+        <div class="layui-layer-title" style="cursor: move;">系统提示</div>
+        <div id="layui-div" class="layui-layer-content layui-layer-padding">
+            <i class="layui-layer-ico layui-layer-ico0"></i>
+            请至少选择一条记录
+        </div>
+        <span class="layui-layer-setwin">
+            <a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;">
+            </a>
+        </span>
+        <span class="layui-layer-resize"></span>
+    </div>
 </div>  
 
 </template>
@@ -229,28 +275,56 @@ export default {
             layui.use('layer', function(){
               var layer = layui.layer;
               layer.open({
-                    type: 2,
-                    title: 'iframe',
+                    type: 1,
+                    title: '添加菜单',
                     fix: false,
                     maxmin: true,
                     shadeClose: true,
                     shade: 0.3,
-                    area: ['1000px', '700px'],
-                    content: 
-                    'https://www.baidu.com',
+                    anim:4,
+                    offset:['160px','460px'],
+                    area: ['800px', '440px'],
+                    content:document.querySelector("#layui-add").innerHTML,
                     end: function () {
                     }
                 });
                 layer.close(index)
             });
-            }
-    },
+        },
+        Amend(){
+            layui.use('layer', function(){
+              var layer = layui.layer;
+              layer.open({
+                    type: 0,
+                    title: '修改菜单',
+                    fix: false,
+                    maxmin: true,
+                    shadeClose: true,
+                    shade: 0.3,
+                    anim:4,
+                    offset:['260px','660px'],
+                    // area: ['320px', '165px'],
+                    content:document.querySelector("#layui-amend").innerHTML,
+                    end: function () {
+                    }
+                });
+                layer.close(index)
+            });
+        },
+            
     mounted() {
        
+    }
     }
 }
 </script>
 <style scoped>
+.layui-from-item-one{
+    margin-top: 26px;
+}
+#layui-div{
+    height: 100%!important;
+}
  .box{
     width:100%;
     height:40px;
@@ -415,6 +489,7 @@ export default {
 .btn-panel{
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
 .btn-left{
     width:277px;

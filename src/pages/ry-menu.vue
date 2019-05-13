@@ -52,8 +52,8 @@
             <dl class="layui-nav-child">
                 <dd><a href="javascript:;">用户管理</a></dd>
                 <dd><a href="javascript:;">角色管理</a></dd>
-                <dd><a href="">菜单管理</a></dd>
-                <dd><a href="javascript:;">部门管理</a></dd>
+                <dd><router-link to="/MenuContent">菜单管理</router-link></dd>
+                <dd><router-link to="/SectionContent">部门管理</router-link></dd>
                 <dd><a href="javascript:;">岗位管理</a></dd>
                 <dd><a href="">字典管理</a></dd>
                 <dd><a href="javascript:;">参数设置</a></dd>
@@ -125,9 +125,9 @@ import SectionContent from '../components/ry-menu/SectionContent'
     color: white;
     background: #367fa9;
 }
-.layui-nav i{
+/* .layui-nav i{
     font-size: 12px;
-}
+} */
 .layui-nav-item .xiaoming{
     font-size: 12px;
 }
