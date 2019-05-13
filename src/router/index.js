@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import RyLogin from '@/pages/ry-login'
-import RyUserAdm from '@/pages/ry-userAdm'
-import RyUserAdmContent from '@/components/ry-userAdmcom/ry-userAdm-content'
-import RyRoleAdmContent from '@/components/ry-userAdmcom/ry-roleAdm-content'
-import RyMenu from '@/pages/ry-menu'
-import MenuContent from '@/components/ry-menu/MenuContent'
-import SectionContent from '@/components/ry-menu/SectionContent'
+import RyPostAdmin from '@/pages/ry-postAdmin'
+import RyPostAdminContentSearch from '@/components/ry-postAdmin/ry-postAdmin-content-search'
+import RyDeAdminContentSearch from "@/components/ry-postAdmin/ry-deAdmin-content-search"
+
 
 Vue.use(Router)
 
@@ -14,35 +12,24 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'login',
       component: RyLogin,
     },
     {
-      path: '/RyUserAdm',
-      component: RyUserAdm,
+      path: '/RyPostAdmin',
+      name: 'RyPostAdmin',
+      component: RyPostAdmin,
       children:[
         {
-          path: '/RyUserAdmContent',
-          component: RyUserAdmContent,
+          path: '/RyPostAdminContentSearch',
+          component: RyPostAdminContentSearch
         },
         {
-          path: '/RyRoleAdmContent',
-          component: RyRoleAdmContent,
-        }
-      ]
-    },
-    {
-      path: '/RyMenu',
-      component: RyMenu,
-      children:[
-        {
-          path: '/MenuContent',
-          component: MenuContent,
-        },
-        {
-          path: '/SectionContent',
-          component: SectionContent,
+          path: '/RyDeAdminContentSearch',
+          component: RyDeAdminContentSearch
         }
       ]
     }
+    
   ]
 })

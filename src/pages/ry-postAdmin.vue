@@ -14,7 +14,7 @@
         <li class="layui-nav-item">
             <a  class="xiaoming" href="javascript:;">
             <img src="../assets/img/profile.jpg" class="layui-nav-img">
-            若依
+            小明
             </a>
             <dl class="layui-nav-child">
             <dd><a href=""><i class="layui-icon layui-icon-friends">&nbsp;&nbsp;个人中心</i></a></dd>
@@ -52,10 +52,10 @@
             <dl class="layui-nav-child">
                 <dd><a href="javascript:;">用户管理</a></dd>
                 <dd><a href="javascript:;">角色管理</a></dd>
-                <dd><router-link to="/MenuContent">菜单管理</router-link></dd>
-                <dd><router-link to="/SectionContent">部门管理</router-link></dd>
-                <dd><a href="javascript:;">岗位管理</a></dd>
-                <dd><a href="">字典管理</a></dd>
+                <dd><a href="">菜单管理</a></dd>
+                <dd><a href="javascript:;">部门管理</a></dd>
+                <dd><router-link to="/RyPostAdminContentSearch">岗位管理</router-link></dd>
+                <dd><router-link to="/RyDeAdminContentSearch">字典管理</router-link></dd>
                 <dd><a href="javascript:;">参数设置</a></dd>
                 <dd><a href="javascript:;">通知公告</a></dd>
                 <dd><a href="">日志管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;</a></dd>
@@ -83,26 +83,29 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div>
-            <!-- <MenuContent/> -->
+            <RyPostAdminContentHeader/>
+            <!-- <AdminContent/> -->
             <router-view>
-                
+
             </router-view>
         </div>
     </div>
     
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        ? layui.com - 底部固定区域
+        © layui.com - 底部固定区域
     </div>
     </div>
 </div>
 </template>
-
 <script>
-import MenuContent from '../components/ry-menu/MenuContent'
-import SectionContent from '../components/ry-menu/SectionContent'
+import RyPostAdminContentHeader from "../components/ry-postAdmin/ry-postAdmin-content-header"
+// import AdminContent from "../components/ry-postAdmin/AdminContent"
+import RyPostAdminContentSearch from "../components/ry-postAdmin/ry-postAdmin-content-search"
+import RyDeAdminContentSearch from "../components/ry-postAdmin/ry-deAdmin-content-search"
+
  export default{
-     name:"RyMenu",
+     name:"RyPostAdmin",
      data(){
          return{
           
@@ -113,21 +116,22 @@ import SectionContent from '../components/ry-menu/SectionContent'
 		  var element = layui.element
 		})
     },
-
     components:{
-        MenuContent,
-        SectionContent
+        // AdminContent,
+        RyPostAdminContentSearch,
+        RyDeAdminContentSearch,
+        RyPostAdminContentHeader
     }
-}
+ }
 </script>
 <style scoped>
 .layui-logos{
     color: white;
     background: #367fa9;
 }
-/* .layui-nav i{
+.layui-nav i{
     font-size: 12px;
-} */
+}
 .layui-nav-item .xiaoming{
     font-size: 12px;
 }
@@ -148,6 +152,7 @@ import SectionContent from '../components/ry-menu/SectionContent'
 .admin_left{
     width:45px;
     height:45px;
+    /* background: yellow; */
     border-radius: 50%;
 }
 .admin_left img{
@@ -158,6 +163,7 @@ import SectionContent from '../components/ry-menu/SectionContent'
 .admin_right{
     width:110.73px;
     height:43.8px;
+    /* background: greenyellow; */
     margin-left: 10px;
 }
 .admin_right h3{
@@ -180,5 +186,4 @@ import SectionContent from '../components/ry-menu/SectionContent'
     color: white;
     font-size: 12px;
 }
-
 </style>

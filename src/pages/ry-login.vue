@@ -38,7 +38,7 @@
                             <input type="checkbox" id="remember"> 
                             <label class="rem_tit"  for="remember">记住我</label>
                           </div>
-                          <router-link to="/RyUserAdm">
+                          <router-link to="RyPostAdminContentSearch">
                             <button class="btn">登录</button>
                           </router-link>
                       </form>
